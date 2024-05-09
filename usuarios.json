@@ -1,0 +1,14 @@
+[
+    {
+        "nombre": "jose",
+        "documento": "318",
+        "edad": "17",
+        "telefono": "666",
+        "correo": "jodacarmon",
+        "categoria": {
+            "nuevo_cliente": true,
+            "cliente_regular": false,
+            "cliente_leal": false
+        }
+    }
+]
