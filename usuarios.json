@@ -18,8 +18,8 @@
         "telefono": "3188842225",
         "correo": "jodacarmon@gmail.com",
         "categoria": {
-            "nuevo_cliente": true,
-            "cliente_regular": false,
+            "nuevo_cliente": false,
+            "cliente_regular": true,
             "cliente_leal": false
         }
     },

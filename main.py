@@ -3,12 +3,16 @@ from funciones_servicios import *
 from datos import *
 
 RUTA_USUARIOS="usuarios.json"
+RUTA_SERVICIOS="servicios.json"
 
-datos=traer_datos(RUTA_USUARIOS)
+datos_usuarios=traer_datos(RUTA_USUARIOS)
+datos_servicio=traer_datos(RUTA_SERVICIOS)
 
 while True:
-    datos=agregar_usuario(datos)
+    asignar_categoria_usuarios(datos_usuarios)
+    guardar_datos(datos_usuarios,RUTA_USUARIOS)
+    agregar_servicio(datos_servicio)
 
-    guardar_datos(datos,RUTA_USUARIOS)
+    guardar_datos(datos_servicio,RUTA_SERVICIOS)
 
 

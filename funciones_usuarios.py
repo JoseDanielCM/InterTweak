@@ -29,7 +29,7 @@ def modificar_usuarios(datos_usuario):
     ################ SE RECORRE EL DICCIONARIO PARA BUSCAR LA PERSONA #####################
     for i in datos_usuario:
         if i["documento"]==documento:
-            print(f"Ya encontramos su usuario, nombre: {i["nombre"]}")
+            print("Ya encontramos su usuario, nombre:", i["nombre"] )
             ##### SE RECORRE EL DICCIONARIO PARA BUSCAR LA OPCION A MODIFICAR ############
             for j in i:
                 if j == opcion:
@@ -49,8 +49,8 @@ def asignar_categoria_usuarios(datos_usuario):
     ################ SE RECORRE EL DICCIONARIO PARA BUSCAR LA PERSONA #####################
     for i in datos_usuario:
         if i["documento"]==documento:
-            print(f"Ya encontramos su usuario, nombre: {i["nombre"]}")
-            nueva_categoria=input(f"Actualmente categoria tiene valores de {i["categoria"]} a que categoria desea cambiar el cliente: ")
+            print("Ya encontramos su usuario, nombre:" , i["nombre"] )
+            nueva_categoria=input("Actualmente categoria tiene valores de " +str(i["categoria"])+ " a que categoria desea cambiar el cliente: ")
             ########### SE VALIDA QUE NO ESTÉ YA EN ESA CATEGORIA PARA CAMBIARLO
             for j in i["categoria"]:
                 if i["categoria"][j]==True and nueva_categoria==j:
