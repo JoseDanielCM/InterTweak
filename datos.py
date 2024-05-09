@@ -7,8 +7,11 @@ def traer_datos(archivo):
     return datos
 
 def guardar_datos(datos,archivo):
-    datos=list(datos)
-    lista=json.dumps(datos,indent=4)
+    if archivo=="usuarios.json":
+        datos=list(datos)
+    else:
+        datos=dict(datos)
+    lista=json.dumps(datos,indent=3)
     file=open(archivo,"w")
     file.write(lista)
     file.close()

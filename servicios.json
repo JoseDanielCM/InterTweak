@@ -1,44 +1,57 @@
 {
-    "internet": {
-      "cable": [
-        {
-          "identificador": "C01",
-          "mb_subida": 30,
-          "mb_bajada": 400,
-          "precio": 70000
-        },
-        {
-          "identificador": "C02",
-          "mb_subida": 50,
-          "mb_bajada": 800,
-          "precio": 90000
-        }
-      ],
-      "fibra optica:": [
-        {
-          "identificador": "F01",
-          "mb_simetricos": 700,
-          "precio": 120000
-        }
-      ]
-    },
-    "planes": {
-      "postpago": [
-        {
-          "identificador": "pt01",
-          "gb": 90,
-          "red": "5g",
-          "precio": 50000
-        }
-      ],
-      "prepago": [
-        {
-          "identificador": "pr01",
-          "contenido": "youtube",
-          "horas": 1,
-          "dias": null,
-          "precio": 3000
-        }
-      ]
-    }
+  "internet": {
+    "cable": [
+      {
+        "identificador": "C01",
+        "mb_subida": 30,
+        "mb_bajada": 400,
+        "precio": 70000
+      },
+      {
+        "identificador": "C02",
+        "mb_subida": 50,
+        "mb_bajada": 800,
+        "precio": 90000
+      },
+      {
+        "identificador": "C03",
+        "mb_subida": 40,
+        "mb_bajada": 60,
+        "precio": 70000
+      }
+    ],
+    "fibra optica": [
+      {
+        "identificador": "F01",
+        "mb_simetricos": 700,
+        "precio": 120000
+      }
+    ],
+    "satelital": [
+      {
+        "identificador": "S01",
+        "mb": 200,
+        "precio": 210000
+      }
+    ]
+  },
+  "planes": {
+    "postpago": [
+      {
+        "identificador": "PT01",
+        "gb": 90,
+        "red": "5g",
+        "precio": 50000
+      }
+    ],
+    "prepago": [
+      {
+        "identificador": "PR01",
+        "contenido": "youtube",
+        "horas": 1,
+        "dias": null,
+        "precio": 3000
+      }
+    ]
   }
+}
