@@ -10,9 +10,9 @@ RUTA_SERVICIOS="servicios.json"
 datos_usuarios=traer_datos(RUTA_USUARIOS)
 datos_servicio=traer_datos(RUTA_SERVICIOS)
 
-
-
-while True:
+datos_usuarios=agregar_usuario(datos_usuarios)
+guardar_datos(datos_usuarios,RUTA_USUARIOS)
+while False:
     menu_principal()
     opc=pedir_opcion()
 
@@ -28,7 +28,7 @@ while True:
         print("Saliste exitosamente")
     else:
         print("Ingresa una opcion valida, ")
-    datos_servicio=agregar_servicio(datos_servicio)
+    agregar_servicio(datos_servicio)
     guardar_datos(datos_servicio,RUTA_SERVICIOS)
 
 

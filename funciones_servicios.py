@@ -85,7 +85,7 @@ def agregar_servicio(datos_servicio):
     print("debes ingresar un tipo de servicio valido, internet o planes")
     return datos_servicio
 
-def modificar_servicios(datos_servicio):
+def eliminar_servicios(datos_servicio):
     datos_servicio=dict(datos_servicio)
     servicio=input("El servicio que deseas eliminar pertenece a (internet) o (planes)")
     identificador=input("Ingrese el identificador del servicio de internet que desea eliminar: ")
@@ -111,7 +111,7 @@ def modificar_servicios(datos_servicio):
     elif servicio=="planes":
         if identificador[:2]=="PR":
             opcion="prepago"
-        elif identificador[0]=="PT":
+        elif identificador[:2]=="PT":
             opcion="postpago"
         else:
             print("Ese identificador no se encuentra en nuestros servicios")
@@ -125,8 +125,60 @@ def modificar_servicios(datos_servicio):
         return datos_servicio
     ################ CASO INGRESO INVALIDO ################
     else:
-        print("Debìas escoger en servicio: internet o planes")
+        print("Debías escoger en servicio: internet o planes")
         return datos_servicio
 
-def eliminar_servicios(datos_servicio):
+def modificar_servicios(datos_servicio):
     datos_servicio=dict(datos_servicio)
+    servicio=input("El servicio que deseas modificar pertenece a (internet) o (planes)")
+    identificador=input("Ingrese el identificador del servicio de internet que desea modificar: ")
+    ############## MODIFICAR SERVICIOS DE INTERNET ##########
+    if servicio=="internet":
+        if identificador[0]=="C":
+            opcion="cable"
+        elif identificador[0]=="F":
+            opcion="fibra optica"
+        elif identificador[0]=="S":
+            opcion="satelital"
+        else:
+            print("Ese identificador no se encuentra en nuestros servicios")
+            return datos_servicio
+
+        print("Los valores que se pueden modificar son:")
+        for i in datos_servicio["internet"][opcion][0]:
+            print(i)
+
+        for i in range(len(datos_servicio["internet"][opcion])):
+            if datos_servicio["internet"][opcion][i]["identificador"]==identificador:
+                objetivo=input("Ingresa que parametro desea modificar:")
+                cambio=input("Actualmente "+identificador+" en "+objetivo+" tiene valor de "+str(datos_servicio["internet"][opcion][i][objetivo])+" a que valor desea modificarlo")
+                datos_servicio["internet"][opcion][i][objetivo]=int(cambio)
+                return datos_servicio
+        print(f"El identificador {identificador} no se encuentra en nuestros servicios")
+        return datos_servicio
+    ################## MODIFICAR PLANES #################
+    elif servicio=="planes":
+        if identificador[:2]=="PR":
+            opcion="prepago"
+        elif identificador[:2]=="PT":
+            opcion="postpago"
+        else:
+            print("Ese identificador no se encuentra en nuestros servicios")
+            return datos_servicio
+
+        print("Los valores que se pueden modificar son:")
+        for i in datos_servicio["planes"][opcion][0]:
+            print(i)
+
+        for i in range(len(datos_servicio["planes"][opcion])):
+            if datos_servicio["planes"][opcion][i]["identificador"]==identificador:
+                objetivo=input("Ingresa que parametro desea modificar:")
+                cambio=input("Actualmente "+identificador+" en "+objetivo+" tiene valor de "+str(datos_servicio["internet"][opcion][i][objetivo])+" a que valor desea modificarlo")
+                datos_servicio["planes"][opcion][i][objetivo]=cambio
+                return datos_servicio
+        print(f"El identificador {identificador} no se encuentra en nuestros servicios")
+        return datos_servicio
+    ################ CASO INGRESO INVALIDO ################
+    else:
+        print("Debías escoger en servicio: internet o planes")
+        return datos_servicio

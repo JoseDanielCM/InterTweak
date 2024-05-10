@@ -1,38 +1,62 @@
 [
-    {
-        "nombre": "Lizeth Dayyana",
-        "documento": "1098784659",
-        "edad": "17",
-        "telefono": "3174556789",
-        "correo": "lizz@outlook.com",
-        "categoria": {
-            "nuevo_cliente": true,
-            "cliente_regular": false,
-            "cliente_leal": false
-        }
-    },
-    {
-        "nombre": "Jose Daniel",
-        "documento": "1102359295",
-        "edad": "17",
-        "telefono": "3188842225",
-        "correo": "jodacarmon@gmail.com",
-        "categoria": {
-            "nuevo_cliente": false,
-            "cliente_regular": true,
-            "cliente_leal": false
-        }
-    },
-    {
-        "nombre": "Kelly Valentina",
-        "documento": "1102359888",
-        "edad": "18",
-        "telefono": "3153697895",
-        "correo": "kellyu@gmail.com",
-        "categoria": {
-            "nuevo_cliente": true,
-            "cliente_regular": false,
-            "cliente_leal": false
-        }
-    }
+   {
+      "nombre": "Lizeth Dayyana",
+      "documento": "1098784659",
+      "edad": "17",
+      "telefono": "3174556789",
+      "correo": "lizz@outlook.com",
+      "categoria": {
+         "nuevo_cliente": true,
+         "cliente_regular": false,
+         "cliente_leal": false
+      }
+   },
+   {
+      "nombre": "Jose Daniel",
+      "documento": "1102359295",
+      "edad": "17",
+      "telefono": "3188842225",
+      "correo": "jodacarmon@gmail.com",
+      "categoria": {
+         "nuevo_cliente": false,
+         "cliente_regular": true,
+         "cliente_leal": false
+      }
+   },
+   {
+      "nombre": "Kelly Valentina",
+      "documento": "1102359888",
+      "edad": "18",
+      "telefono": "3153697895",
+      "correo": "kellyu@gmail.com",
+      "categoria": {
+         "nuevo_cliente": true,
+         "cliente_regular": false,
+         "cliente_leal": false
+      }
+   },
+   {
+      "nombre": "Gabriela Alejandra",
+      "documento": "1025369685",
+      "edad": "18",
+      "telefono": "3152467598",
+      "correo": "gaby@hotmail.com",
+      "categoria": {
+         "nuevo_cliente": true,
+         "cliente_regular": false,
+         "cliente_leal": false
+      }
+   },
+   {
+      "nombre": "Zaira Alejandra",
+      "documento": "1152639685",
+      "edad": "18",
+      "telefono": "3137594861",
+      "correo": "sairaa@gmail.com",
+      "categoria": {
+         "nuevo_cliente": true,
+         "cliente_regular": false,
+         "cliente_leal": false
+      }
+   }
 ]
