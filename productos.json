@@ -1,0 +1,34 @@
+{
+   "celulares": [
+      {
+         "nombre": "nova 11i",
+         "marca": "huawei",
+         "gb": 128,
+         "precio": 650000,
+         "unidades": "14"
+      },
+      {
+         "nombre": "moto g84",
+         "marca": "motorola",
+         "gb": 256,
+         "precio": 900000,
+         "unidades": 10
+      }
+   ],
+   "audifonos": [
+      {
+         "nombre": "redmi buds 5",
+         "marca": "xiaomi",
+         "clase": "inalambricos",
+         "precio": "200000",
+         "unidades": 20
+      },
+      {
+         "nombre": "freebuds se 2",
+         "marca": "huawei",
+         "clase": "inalambricos",
+         "precio": "550000",
+         "unidades": 20
+      }
+   ]
+}
