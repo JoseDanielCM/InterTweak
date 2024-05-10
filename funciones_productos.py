@@ -44,8 +44,8 @@ def modificar_productos(datos_productos):
         print("Actualmente hay estos celulares: ")
         print("*"*len("Actualmente hay estos celulares: "))
         for i in datos_productos[producto]:
-            print(f"marca: {i["marca"]}")
-            print(f"nombre: {i["nombre"]}")
+            print("marca: "+i["marca"])
+            print("nombre: "+i["nombre"])
             ###### ASTERISCOS DEL TAMAÑO DEL TEXTO #########
             print("*"*(len(i["nombre"])+8))
             ################################################
@@ -68,8 +68,8 @@ def modificar_productos(datos_productos):
         print("Actualmente hay estos audifonos: ")
         print("*"*len("Actualmente hay estos audifonos: "))
         for i in datos_productos[producto]:
-            print(f"marca: {i["marca"]}")
-            print(f"nombre: {i["nombre"]}")
+            print("marca: "+i["marca"])
+            print("nombre: "+i["nombre"])
             ###### ASTERISCOS DEL TAMAÑO DEL TEXTO #########
             print("*"*(len(i["nombre"])+8))
             ################################################
@@ -101,8 +101,8 @@ def eliminar_productos(datos_productos):
         print("Actualmente hay estos celulares: ")
         print("*"*len("Actualmente hay estos celulares: "))
         for i in datos_productos[producto]:
-            print(f"marca: {i["marca"]}")
-            print(f"nombre: {i["nombre"]}")
+            print("marca: "+i["marca"])
+            print("nombre: "+i["nombre"])
             ###### ASTERISCOS DEL TAMAÑO DEL TEXTO #########
             print("*"*(len(i["nombre"])+8))
             ################################################
@@ -123,8 +123,8 @@ def eliminar_productos(datos_productos):
         print("Actualmente hay estos audifonos: ")
         print("*"*len("Actualmente hay estos audifonos: "))
         for i in datos_productos[producto]:
-            print(f"marca: {i["marca"]}")
-            print(f"nombre: {i["nombre"]}")
+            print("marca: "+i["marca"])
+            print("nombre: "+i["nombre"])
             ###### ASTERISCOS DEL TAMAÑO DEL TEXTO #########
             print("*"*(len(i["nombre"])+8))
             ################################################

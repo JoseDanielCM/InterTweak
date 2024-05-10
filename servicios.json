@@ -5,33 +5,38 @@
             "identificador": "C01",
             "mb_subida": 30,
             "mb_bajada": 400,
-            "precio": 70000
+            "precio": 70000,
+            "vendidos": 0
          },
          {
             "identificador": "C02",
             "mb_subida": 50,
             "mb_bajada": 800,
-            "precio": 90000
+            "precio": 90000,
+            "vendidos": 1
          },
          {
             "identificador": "C03",
             "mb_subida": 45,
             "mb_bajada": 600,
-            "precio": 70000
+            "precio": 70000,
+            "vendidos": 0
          }
       ],
       "fibra optica": [
          {
             "identificador": "F01",
             "mb_simetricos": 700,
-            "precio": 120000
+            "precio": 120000,
+            "vendidos": 0
          }
       ],
       "satelital": [
          {
             "identificador": "S01",
             "mb": 200,
-            "precio": 210000
+            "precio": 210000,
+            "vendidos": 1
          }
       ]
    },
@@ -41,7 +46,8 @@
             "identificador": "PT01",
             "gb": 90,
             "red": "5g",
-            "precio": 50000
+            "precio": 50000,
+            "vendidos": 0
          }
       ],
       "prepago": [
@@ -50,7 +56,8 @@
             "contenido": "youtube",
             "horas": 1,
             "dias": null,
-            "precio": 3000
+            "precio": 3000,
+            "vendidos": 1
          }
       ]
    }

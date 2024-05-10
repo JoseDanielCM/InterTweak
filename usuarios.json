@@ -9,6 +9,17 @@
          "nuevo_cliente": true,
          "cliente_regular": false,
          "cliente_leal": false
+      },
+      "compras_servicios": {
+         "compra 1": {
+            "identificador": "C03"
+         }
+      },
+      "compras_productos": {
+         "compra 1": {
+            "tipo": "celulares",
+            "nombre": "moto g84"
+         }
       }
    },
    {

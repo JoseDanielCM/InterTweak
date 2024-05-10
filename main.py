@@ -1,6 +1,7 @@
 from funciones_usuarios import *
 from funciones_servicios import *
 from funciones_productos import *
+from funciones_ventas import realizar_venta
 from menu import *
 from datos import *
 
@@ -12,8 +13,11 @@ datos_usuarios=traer_datos(RUTA_USUARIOS)
 datos_servicio=traer_datos(RUTA_SERVICIOS)
 datos_productos=traer_datos(RUTA_PRODUCTOS)
 
-eliminar_productos(datos_productos)
-guardar_datos(datos_productos,RUTA_PRODUCTOS)
+datos_usuarios=agregar_usuario(datos_usuarios)
+guardar_datos(datos_usuarios,RUTA_USUARIOS)
+
+
+
 
 while False:
     menu_principal()
