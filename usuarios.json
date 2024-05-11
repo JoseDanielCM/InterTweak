@@ -10,15 +10,12 @@
          "cliente_regular": false,
          "cliente_leal": false
       },
-      "compras_servicios": {
-         "compra 1": {
-            "identificador": "C03"
-         }
-      },
+      "compras_servicios": {},
       "compras_productos": {
          "compra 1": {
-            "tipo": "celulares",
-            "nombre": "moto g84"
+            "tipo": "audifonos",
+            "nombre": "redmi buds 5",
+            "cantidad": 2
          }
       }
    },
@@ -32,7 +29,9 @@
          "nuevo_cliente": false,
          "cliente_regular": true,
          "cliente_leal": false
-      }
+      },
+      "compras_servicios": {},
+      "compras_productos": {}
    },
    {
       "nombre": "Kelly Valentina",
@@ -44,7 +43,9 @@
          "nuevo_cliente": true,
          "cliente_regular": false,
          "cliente_leal": false
-      }
+      },
+      "compras_servicios": {},
+      "compras_productos": {}
    },
    {
       "nombre": "Gabriela Alejandra",
@@ -56,18 +57,22 @@
          "nuevo_cliente": true,
          "cliente_regular": false,
          "cliente_leal": false
-      }
+      },
+      "compras_servicios": {},
+      "compras_productos": {}
    },
    {
       "nombre": "Zaira Alejandra",
-      "documento": "1152639685",
+      "documento": "1020307485",
       "edad": "18",
-      "telefono": "3137594861",
-      "correo": "sairaa@gmail.com",
+      "telefono": "3187294865",
+      "correo": "zaira@gmail.com",
       "categoria": {
          "nuevo_cliente": true,
          "cliente_regular": false,
          "cliente_leal": false
-      }
+      },
+      "compras_servicios": {},
+      "compras_productos": {}
    }
 ]

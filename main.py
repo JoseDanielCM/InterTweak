@@ -9,15 +9,11 @@ RUTA_USUARIOS="usuarios.json"
 RUTA_SERVICIOS="servicios.json"
 RUTA_PRODUCTOS="productos.json"
 
-datos_usuarios=traer_datos(RUTA_USUARIOS)
-datos_servicio=traer_datos(RUTA_SERVICIOS)
-datos_productos=traer_datos(RUTA_PRODUCTOS)
+datos_usuarios = traer_datos(RUTA_USUARIOS)
+datos_servicio = traer_datos(RUTA_SERVICIOS)
+datos_productos = traer_datos(RUTA_PRODUCTOS)
 
-datos_usuarios=agregar_usuario(datos_usuarios)
-guardar_datos(datos_usuarios,RUTA_USUARIOS)
-
-
-
+realizar_venta()
 
 while False:
     menu_principal()

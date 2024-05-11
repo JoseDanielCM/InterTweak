@@ -7,7 +7,6 @@
          "precio": 650000,
          "unidades": 14,
          "vendidos": 0
-      
       },
       {
          "nombre": "moto g84",
@@ -23,15 +22,15 @@
          "nombre": "redmi buds 5",
          "marca": "xiaomi",
          "clase": "inalambricos",
-         "precio": "200000",
-         "unidades": 20,
-         "vendidos": 0
+         "precio": 200000,
+         "unidades": 16,
+         "vendidos": 4
       },
       {
          "nombre": "freebuds se 2",
          "marca": "huawei",
          "clase": "inalambricos",
-         "precio": "550000",
+         "precio": 550000,
          "unidades": 20,
          "vendidos": 0
       }

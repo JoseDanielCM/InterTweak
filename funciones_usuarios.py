@@ -1,3 +1,7 @@
+from datos import guardar_datos
+RUTA_USUARIOS="usuarios.json"
+
+
 def agregar_usuario(datos_usuario):
     datos_usuario=list(datos_usuario)
     nombre=input("Ingresa el nombre del usuario: ")
@@ -5,8 +9,19 @@ def agregar_usuario(datos_usuario):
     edad=input("Ingresa la edad del usuario: ")
     telefono=input("Ingresa el telefono del usuario: ")
     correo=input("Ingresa el correo del usuario: ")
-    datos_usuario.append({"nombre":nombre,"documento":documento,"edad":edad,"telefono":telefono,"correo":correo,"categoria":{"nuevo_cliente":True,"cliente_regular":False,"cliente_leal":False}})
-    return datos_usuario
+    datos_usuario.append({"nombre":nombre,
+                          "documento":documento,
+                          "edad":edad,
+                          "telefono":telefono,
+                          "correo":correo,
+                          "categoria":{"nuevo_cliente":True,
+                                       "cliente_regular":False,
+                                       "cliente_leal":False},
+                          "compras_servicios":{},
+                          "compras_productos":{}
+                          })
+    guardar_datos(datos_usuario,RUTA_USUARIOS)
+    return None
 
 def eliminar_usuario(datos_usuario):
     datos_usuario=list(datos_usuario)
@@ -16,7 +31,8 @@ def eliminar_usuario(datos_usuario):
             datos_usuario.pop(i)
             return datos_usuario
     print(f"No se encontró un usuario con documento: {documento}")
-    return datos_usuario
+    guardar_datos(datos_usuario,RUTA_USUARIOS)
+    return None
 
 def modificar_usuarios(datos_usuario):
     datos_usuario=list(datos_usuario)
@@ -34,13 +50,14 @@ def modificar_usuarios(datos_usuario):
             for j in i:
                 if j == opcion:
                     i[opcion]=input(f"Actualmente {opcion} tiene valor de {i[opcion]} escriba a que desea modificarlo: ")
-                    return datos_usuario
+                    guardar_datos(datos_usuario,RUTA_USUARIOS)
+                    return None
                     ##### SI SE ENCUENTRA LA OPCION SE REEMPLAZA Y SE DEVUELVE datos_usuario
             print(f"Dentro de los datos_usuario de usuarios que tenemos no se encontró la opcion {opcion}")
-            return datos_usuario
+            return None
             #### SI NO SE ENCUENTRA LA OPCION SE AVISA,Y SE DEVUELVE datos_usuario
     print(f"Dentro de los usuarios de la base de datos_usuario no hay uno con documento {documento},intentelo de nuevo")
-    return datos_usuario
+    return None
     ### SI NO SE ENCUENTRA DOCUMENTO, SE AVISA Y SE DEVUELVE datos_usuario
 
 def asignar_categoria_usuarios(datos_usuario):
@@ -55,7 +72,7 @@ def asignar_categoria_usuarios(datos_usuario):
             for j in i["categoria"]:
                 if i["categoria"][j]==True and nueva_categoria==j:
                     print("El usuario ya está en esa categoria, debe ingresar a cual desea cambiarlo")
-                    return datos_usuario
+                    return None
                 ### SI NO ESTÁ EN ESA CATEGORIA Y A ESA SE DESEA CAMBIAR, SE HACE LA MODIFICACION
                 elif i["categoria"][j]==False and nueva_categoria==j:
                     ##### SE DEJAN TODAS EN FALSE
@@ -64,10 +81,11 @@ def asignar_categoria_usuarios(datos_usuario):
                     i["categoria"]["cliente_leal"]=False
                     #### SE COLOCA EN TRUE,LA DESEADA
                     i["categoria"][nueva_categoria]=True
-                    return datos_usuario
+                    guardar_datos(datos_usuario,RUTA_USUARIOS)
+                    return None
             print("Esa categoría no existe en nuestra base de datos_usuario, intente otra a la proxima")
-            return datos_usuario
+            return None
     print(f"Dentro de los usuarios de la base de datos_usuario no hay uno con documento {documento},intentelo de nuevo")
-    return datos_usuario
+    return None
     ### SI NO SE ENCUENTRA DOCUMENTO, SE AVISA Y SE DEVUELVE datos_usuario
 
