@@ -2,19 +2,20 @@
    {
       "nombre": "Lizeth Dayyana",
       "documento": "1098784659",
-      "edad": "17",
+      "edad": 17,
       "telefono": "3174556789",
       "correo": "lizz@outlook.com",
-      "categoria": {
-         "nuevo_cliente": true,
-         "cliente_regular": false,
-         "cliente_leal": false
-      },
+      "categoria": "nuevo_cliente",
       "compras_servicios": {},
       "compras_productos": {
          "compra 1": {
             "tipo": "audifonos",
             "nombre": "redmi buds 5",
+            "cantidad": 2
+         },
+         "compra 2": {
+            "tipo": "celulares",
+            "nombre": "nova 11i",
             "cantidad": 2
          }
       }
@@ -22,56 +23,46 @@
    {
       "nombre": "Jose Daniel",
       "documento": "1102359295",
-      "edad": "17",
+      "edad": 17,
       "telefono": "3188842225",
       "correo": "jodacarmon@gmail.com",
-      "categoria": {
-         "nuevo_cliente": false,
-         "cliente_regular": true,
-         "cliente_leal": false
-      },
+      "categoria": "cliente_regular",
       "compras_servicios": {},
       "compras_productos": {}
    },
    {
       "nombre": "Kelly Valentina",
       "documento": "1102359888",
-      "edad": "18",
+      "edad": 18,
       "telefono": "3153697895",
       "correo": "kellyu@gmail.com",
-      "categoria": {
-         "nuevo_cliente": true,
-         "cliente_regular": false,
-         "cliente_leal": false
-      },
+      "categoria": "cliente_leal",
       "compras_servicios": {},
-      "compras_productos": {}
+      "compras_productos": {
+         "compra 1": {
+            "tipo": "celulares",
+            "nombre": "nova 11i",
+            "cantidad": 1
+         }
+      }
    },
    {
       "nombre": "Gabriela Alejandra",
       "documento": "1025369685",
-      "edad": "18",
+      "edad": 18,
       "telefono": "3152467598",
       "correo": "gaby@hotmail.com",
-      "categoria": {
-         "nuevo_cliente": true,
-         "cliente_regular": false,
-         "cliente_leal": false
-      },
+      "categoria": "nuevo_cliente",
       "compras_servicios": {},
       "compras_productos": {}
    },
    {
       "nombre": "Zaira Alejandra",
       "documento": "1020307485",
-      "edad": "18",
+      "edad": 18,
       "telefono": "3187294865",
       "correo": "zaira@gmail.com",
-      "categoria": {
-         "nuevo_cliente": true,
-         "cliente_regular": false,
-         "cliente_leal": false
-      },
+      "categoria": "nuevo_cliente",
       "compras_servicios": {},
       "compras_productos": {}
    }

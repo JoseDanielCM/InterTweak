@@ -1,0 +1,36 @@
+[
+   {
+      "producto": "celulares",
+      "nombre": "nova 11i",
+      "comprados": [
+         {
+            "usuario": "Lizeth Dayyana",
+            "cantidad": 2
+         },
+         {
+            "usuario": "Kelly Valentina",
+            "cantidad": 1
+         }
+      ]
+   },
+   {
+      "producto": "celulares",
+      "nombre": "moto g84",
+      "comprados": []
+   },
+   {
+      "producto": "audifonos",
+      "nombre": "redmi buds 5",
+      "comprados": [
+         {
+            "usuario": "Lizeth Dayyana",
+            "cantidad": 2
+         }
+      ]
+   },
+   {
+      "producto": "audifonos",
+      "nombre": "freebuds se 2",
+      "comprados": []
+   }
+]

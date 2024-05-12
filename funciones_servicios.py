@@ -182,3 +182,54 @@ def modificar_servicios(datos_servicio):
     else:
         print("Debías escoger en servicio: internet o planes")
         return datos_servicio
+
+def servicios_populares(datos_servicios):
+
+
+
+    datos_servicios=dict(datos_servicios)
+    print("LOS SERVICIOS CON MAS VENTAS EN INTERNET SON")
+    print("")
+    lista_vendidos_internet=[]
+    for i in datos_servicios["internet"]:
+        if len(datos_servicios["internet"][i])>=1:
+            for j in datos_servicios["internet"][i]:
+                lista_vendidos_internet.append(j["vendidos"])
+        else:
+            print("No hay cantidad suficiente de servicios de internet para hacer un buen analisis")
+            return datos_servicios
+    #################### SE TRANSFORMAN PARA QUE NO QUEDEN DUPLICADOS ###########
+    lista_vendidos_internet=set(lista_vendidos_internet)
+    lista_vendidos_internet=list(lista_vendidos_internet)
+    lista_vendidos_internet.reverse()
+    #############################################################################
+
+
+    for i in datos_servicios["internet"]:
+        for j in datos_servicios["internet"][i]:
+            if j["vendidos"]==lista_vendidos_internet[0] or j["vendidos"]==lista_vendidos_internet[1]:
+                print(i+" -> identificador: "+j["identificador"])
+    print("")
+                
+
+    print("LOS SERVICIOS CON MAS VENTAS EN PLANES SON")
+    print("")
+    lista_vendidos_planes=[]
+    for i in datos_servicios["planes"]:
+        if len(datos_servicios["planes"][i])>=2:
+            for j in datos_servicios["planes"][i]:
+                lista_vendidos_internet.append(j["vendidos"])
+        else:
+            print("No hay cantidad suficiente de servicios de planes para hacer un buen analisis")
+            return datos_servicios
+    ################### SE TRANSFORMAN PARA QUE NO QUEDEN DUPLICADOS ###########
+    lista_vendidos_planes=set(lista_vendidos_planes)
+    lista_vendidos_planes=list(lista_vendidos_planes)
+    lista_vendidos_planes.reverse()
+    #############################################################################
+
+    for i in datos_servicios["planes"]:
+        for j in datos_servicios["planes"][i]:
+            if j["vendidos"]==lista_vendidos_internet[0] or j["vendidos"]==lista_vendidos_internet[1]:
+                print(i+" -> identificador: "+j["identificador"])
+

@@ -4,14 +4,23 @@
          "nombre": "nova 11i",
          "marca": "huawei",
          "gb": 128,
+         "nivel": [
+            "cliente_regular",
+            "cliente_leal"
+         ],
          "precio": 650000,
-         "unidades": 14,
-         "vendidos": 0
+         "unidades": 12,
+         "vendidos": 2
       },
       {
          "nombre": "moto g84",
          "marca": "motorola",
          "gb": 256,
+         "nivel": [
+            "nuevo_cliente",
+            "cliente_regular",
+            "cliente_leal"
+         ],
          "precio": 900000,
          "unidades": 10,
          "vendidos": 0
@@ -22,6 +31,11 @@
          "nombre": "redmi buds 5",
          "marca": "xiaomi",
          "clase": "inalambricos",
+         "nivel": [
+            "nuevo_cliente",
+            "cliente_regular",
+            "cliente_leal"
+         ],
          "precio": 200000,
          "unidades": 16,
          "vendidos": 4
@@ -30,6 +44,11 @@
          "nombre": "freebuds se 2",
          "marca": "huawei",
          "clase": "inalambricos",
+         "nivel": [
+            "nuevo_cliente",
+            "cliente_regular",
+            "cliente_leal"
+         ],
          "precio": 550000,
          "unidades": 20,
          "vendidos": 0

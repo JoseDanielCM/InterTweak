@@ -4,22 +4,76 @@ RUTA_USUARIOS="usuarios.json"
 RUTA_SERVICIOS="servicios.json"
 RUTA_PRODUCTOS="productos.json"
 
-def realizar_venta():
+def promocion_usuario():
+    cliente_encontrado=False
+    datos_usuarios=traer_datos(RUTA_USUARIOS)
+    print("Actualmente contamos con promocion, si el cliente es menor de 22 años y se encuentra estudiando")
+    documento=input("Ingresa el documento del usuario que quiere comprar: ")
+
+    for i in datos_usuarios:
+        if i["documento"]==documento:
+            cliente_encontrado=True
+
+    if cliente_encontrado==False:
+        print("El cliente no se encontró en la base de datos, debes ingresar uno nuevo")
+        return None
+    
+    for i in datos_usuarios:
+        if i["edad"]<22 and i["documento"]==documento:
+            ocupacion=input("Preguntale al cliente si actualmente se encuentra estudiando (si) (no) ")
+            ocupacion.lower()
+            if ocupacion=="si":
+                promocion=True
+            elif ocupacion=="no":
+                promocion=False
+            else:
+                print("Se debía ingresar (si) o (no)")
+    print(promocion)
+    return promocion
+
+def realizar_venta(promocion):
     encontrado=False
+    cliente_encontrado=False
     datos_usuarios=traer_datos(RUTA_USUARIOS)
     datos_servicios=traer_datos(RUTA_SERVICIOS)
     datos_productos=traer_datos(RUTA_PRODUCTOS)
     documento=input("Ingresa el documento del usuario que quiere comprar: ")
+
+    ########### COMPROBACIONES #####################
+
+    for i in datos_usuarios:
+        if i["documento"]==documento:
+            cliente_encontrado=True
+
+    if cliente_encontrado==False:
+        print("El cliente no se encontró en la base de datos, debes ingresar uno nuevo")
+        return None
+
     objetivo=input("Que desea comprar el cliente? (servicios) o (productos): ")
 
+    ########### COMPROBACIONES #####################
+
+    if objetivo == "servicios" or objetivo=="productos":
+        None
+    else:
+        print("Debías escoger una de las dos opciones")
+        return None
 ############### TODOS SERVICIOS #######################
     if objetivo=="servicios":
+
         servicio=input("Que servicio desea comprar? (internet) o (planes): ")
-        ################# MOSTRAR SERVICIOS QUE HAY #######################
-        print(f"Para servicios de {servicio} tenemos los siguientes")
-        for i in datos_servicios[servicio]:
-            print(i)
-        opciones=input("De las anteriores opciones cual desea el cliente?: ")
+
+        if servicio=="internet" or servicio=="planes":
+
+            ################# MOSTRAR SERVICIOS QUE HAY #######################
+            print(f"Para servicios de {servicio} tenemos los siguientes")
+            for i in datos_servicios[servicio]:
+                print(i)
+            opciones=input("De las anteriores opciones cual desea el cliente?: ")
+
+        else:
+            print("Debías escoger o internet o planes")
+            return None
 
         if opciones=="cable" or opciones=="fibra optica" or opciones=="satelital" or opciones=="prepago" or opciones=="postpago":
         ############ MOSTRAR SERVICIOS DE INTERNET CABLE ##############
@@ -29,11 +83,17 @@ def realizar_venta():
                 print(i)
                 print("********************************************************************")
             indentificador=input("Ingresa el identificador del servicio que desea el cliente: ")
+
+            aceptar=input("Ingresa la cantidad de dienero que te dió el cliente")
         ################ AGREGAR 1 UNIDAD VENDIDA EN SERVICIOS ################
             for i in datos_servicios[servicio][opciones]:
-                if i["identificador"]==indentificador:
+                if i["identificador"]==indentificador and aceptar>= i["precio"]:
                     encontrado=True
                     i["vendidos"]+=1
+                    if aceptar ==i["precio"]:
+                        print("No le debes devolver cambio")
+                    else:
+                        print("le debes devolver "+(aceptar-i["precio"]))
                     guardar_datos(datos_servicios,RUTA_SERVICIOS)
             if encontrado==False:
                 print("No se encontró tal identificador")
@@ -45,21 +105,25 @@ def realizar_venta():
                     i["compras_servicios"]={f"compra {num_compra}":{"identificador":indentificador}}
                     guardar_datos(datos_usuarios,RUTA_USUARIOS)
                     return None
-            print("No se encontró dal documento de usuario")
-            return None
+                
         else:
-            print("Debias ingresar una opcion valida (cable) (fibra optica) (satelital)")
+            print("Debias ingresar una opcion valida (cable) (fibra optica) (satelital) (prepago) (pospago)")
             return None
+        
 ############### TODOS PRODUCTOS #######################
-    elif objetivo=="productos":
-
+    else:
 
         ################# MOSTRAR PRODUCTOS QUE HAY #################
         producto=input("Que desea comprar el cliente? (celulares) o (audifonos): ")
-            ################################# AVISO###################################
-            ######### VERIFICAR QUE PRODUCTO SEA CELULARES O AUDIFONOS ###############
+
+        if producto=="celulares" or producto=="audifonos":
+            None
+        else:
+            print("debías escoger (celulares) o (audifonos) ")
+            return None
+
         print(f"Los siguientes son los {producto} que tenemos y sus caracteristicas:")
-        #
+        
         for i in datos_productos[producto]:
             print(i)
             print("********************************************************************")
@@ -70,41 +134,55 @@ def realizar_venta():
         elif producto=="audifonos":
             nombre=input("Escriba el nombre del audifono que desea: ")
             cantidad=int(input(f"Cuantos {nombre} desea? "))
-        else:
-            print("Debías escoger entre celulares o audifonos")
-            return None
 
+
+        ################ GUARDAR LA POSICION DEL USUARIO PARA USARLA LUEGO EN LA VERIFICACION ########
+        for i in range(len(datos_usuarios)):
+            if datos_usuarios[i]["documento"]==documento:
+                posicion_usuario=i
+                break
+        
 ################ AGREGAR 1 UNIDAD EN SERVICIOS ################
+        producto_encontrado=False
         for i in datos_productos[producto]:
     ########### VERIFICAR QUE EL PRODUCTÓ ESTÉ ####################
             if i["nombre"]==nombre:
-                nombre_encontrado=True
-    ################# VERIFICAR QUE ALCANCES LOS PRODUCTOS PARA LA VENTA #######
-                if i["unidades"]>=cantidad:
-    ############## VERIFICAR QUE EL CLIENTE CUENTE CON LA CANTIDAD DE DINERO NECESARIA ####
-                    print("En total serían ",i["precio"]*cantidad)                    
-                    aceptar=int(input("Cuanto dinero te entregó el cliente? "))
-                    if aceptar>i["precio"]*cantidad:
-                        print("Compra exitosa")
-                        print("Devuelvele al cliente $",(aceptar-i["precio"]*cantidad))
-                        i["vendidos"]+=cantidad
-                        i["unidades"]-=cantidad
-                        guardar_datos(datos_productos,RUTA_PRODUCTOS)
+                producto_encontrado=True
 
-                    elif aceptar==i["precio"]*cantidad:
-                        print("Compra exitosa, se entregó la cantidad justa de dinero, no es necesario devolver cambio")
-                        i["vendidos"]+=cantidad
-                        i["unidades"]-=cantidad
-                        guardar_datos(datos_productos,RUTA_PRODUCTOS)
+                if datos_usuarios[posicion_usuario]["categoria"] in i["nivel"]:
+        ################# VERIFICAR QUE ALCANCES LOS PRODUCTOS PARA LA VENTA #######
+                    if i["unidades"]>=cantidad:
+        ############## VERIFICAR QUE EL CLIENTE CUENTE CON LA CANTIDAD DE DINERO NECESARIA ####
+                        precio=i["precio"]
+                        if promocion==True:
+                            precio=int(precio*0.7)
+                        print("En total serían ",precio*cantidad)                    
+                        aceptar=int(input("Cuanto dinero te entregó el cliente? "))
+                        if aceptar>precio*cantidad:
+                            print("Compra exitosa")
+                            print("Devuelvele al cliente $",(aceptar-precio*cantidad))
+                            i["vendidos"]+=cantidad
+                            i["unidades"]-=cantidad
+                            guardar_datos(datos_productos,RUTA_PRODUCTOS)
 
+                        elif aceptar==precio*cantidad:
+                            print("Compra exitosa, se entregó la cantidad justa de dinero, no es necesario devolver cambio")
+                            i["vendidos"]+=cantidad
+                            i["unidades"]-=cantidad
+                            guardar_datos(datos_productos,RUTA_PRODUCTOS)
+
+                        else:
+                            print("El cliente no entregó el dinero suficiente ")
+                            return None
                     else:
-                        print("El cliente no entregó el dinero suficiente ")
+                        print("No se posee el stock suficiente para realizar")
                         return None
                 else:
-                    print("No se posee el stock suficiente para realizar")
+                    print("El cliente no posee con el nivel suficiente para adquirir este producto")
                     return None
-        if nombre_encontrado==False:
+        if producto_encontrado==False:
             print("No se encontró tal nombre de producto en nuestro catalogo")
+            return None
         
         ######## TODO AGREGAR LA COMPRA AL USUARIO ################
         for i in datos_usuarios:
@@ -115,7 +193,4 @@ def realizar_venta():
                 return None
         print("No se encontró dal documento de usuario")
         return None
-
-    else:
-        print("Debes ingresar una opcion valida (servicios) o (productos)")
 

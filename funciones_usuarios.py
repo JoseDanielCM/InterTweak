@@ -14,9 +14,7 @@ def agregar_usuario(datos_usuario):
                           "edad":edad,
                           "telefono":telefono,
                           "correo":correo,
-                          "categoria":{"nuevo_cliente":True,
-                                       "cliente_regular":False,
-                                       "cliente_leal":False},
+                          "categoria":"nuevo_cliente",
                           "compras_servicios":{},
                           "compras_productos":{}
                           })
@@ -67,22 +65,31 @@ def asignar_categoria_usuarios(datos_usuario):
     for i in datos_usuario:
         if i["documento"]==documento:
             print("Ya encontramos su usuario, nombre:" , i["nombre"] )
-            nueva_categoria=input("Actualmente categoria tiene valores de " +str(i["categoria"])+ " a que categoria desea cambiar el cliente: ")
+            print("Las categorias son (nuevo_cliente) (cliente_regular) (cliente_leal)")
+            nueva_categoria=input("Actualmente categoria tiene valores de " +str(i["categoria"])+ " a que categoria desea cambiar el cliente: (1) (2) o (3) ")
             ########### SE VALIDA QUE NO ESTÉ YA EN ESA CATEGORIA PARA CAMBIARLO
-            for j in i["categoria"]:
-                if i["categoria"][j]==True and nueva_categoria==j:
-                    print("El usuario ya está en esa categoria, debe ingresar a cual desea cambiarlo")
-                    return None
+
+            if nueva_categoria=="1" or nueva_categoria=="2" or nueva_categoria=="3":
+                None
+            else:
+                print("Debías escoger entre las tres categorias")
+                return None
+
+            if nueva_categoria=="1":
+                nueva_categoria="nuevo_cliente"
+            elif nueva_categoria=="2":
+                nueva_categoria="cliente_regular"
+            else:
+                nueva_categoria="cliente_leal"
+
+            if i["categoria"]==nueva_categoria:
+                print("El usuario ya está en esa categoria, debe ingresar a cual desea cambiarlo")
+                return None
                 ### SI NO ESTÁ EN ESA CATEGORIA Y A ESA SE DESEA CAMBIAR, SE HACE LA MODIFICACION
-                elif i["categoria"][j]==False and nueva_categoria==j:
-                    ##### SE DEJAN TODAS EN FALSE
-                    i["categoria"]["nuevo_cliente"]=False
-                    i["categoria"]["cliente_regular"]=False
-                    i["categoria"]["cliente_leal"]=False
-                    #### SE COLOCA EN TRUE,LA DESEADA
-                    i["categoria"][nueva_categoria]=True
-                    guardar_datos(datos_usuario,RUTA_USUARIOS)
-                    return None
+            elif i["categoria"]!=nueva_categoria:
+                i["categoria"]=nueva_categoria
+                guardar_datos(datos_usuario,RUTA_USUARIOS)
+                return None
             print("Esa categoría no existe en nuestra base de datos_usuario, intente otra a la proxima")
             return None
     print(f"Dentro de los usuarios de la base de datos_usuario no hay uno con documento {documento},intentelo de nuevo")

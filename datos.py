@@ -7,7 +7,7 @@ def traer_datos(archivo):
     return datos
 
 def guardar_datos(datos,archivo):
-    if archivo=="usuarios.json":
+    if archivo=="usuarios.json" or archivo=="reporte_productos_clientes.json":
         datos=list(datos)
     else:
         datos=dict(datos)
