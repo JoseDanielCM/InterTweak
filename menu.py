@@ -32,10 +32,9 @@ def pedir_opcion():
         print("***************************************")
         return opc
     except Exception:
-        print("Valor inválido")
         print("***************************************")
         return -1
-    
+
 def mod_usuario():
     datos_usuario = traer_datos(RUTA_USUARIOS)
 

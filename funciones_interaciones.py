@@ -1,8 +1,19 @@
 from datos import traer_datos,guardar_datos
+
+import datetime
+
+############## RUTAS #########################
+
 RUTA_SERVICIO_CLIENTE="servicio_cliente.json"
 RUTA_SUGERENCIAS="sugerencias.json"
 RUTA_RECLAMACIONES="reclamaciones.json"
-
+##############################################
+def txt_fecha_actual(mensaje):
+    fecha_actual=datetime.datetime.now()
+    fecha_actual=datetime.datetime.strftime(fecha_actual,"%d/%m/%Y - %H:%M:%S")
+    with open("excepciones.txt","a") as file:
+        file.write(fecha_actual+" -> ")
+        file.write(mensaje+"\n"+"\n")
 
 def servicio_cliente():
     datos_servicio_cliente=traer_datos(RUTA_SERVICIO_CLIENTE)
@@ -73,8 +84,7 @@ def reclamacion():
         print("Se debía escoger una de las opciones dichas")
         return None
     guardar_datos(datos_reclamaciones,RUTA_RECLAMACIONES)
-
-    
+ 
 def sugerencia():
     datos_sugerencias=traer_datos(RUTA_SUGERENCIAS)
     mensaje=input("Escribe la sugerencia que quiere dejar el cliente ")

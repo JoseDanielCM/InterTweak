@@ -1,18 +1,13 @@
-from funciones_usuarios import *
-from funciones_servicios import *
-from funciones_productos import *
-from funciones_reportes import *
-from funciones_ventas import realizar_venta, promocion_usuario
 from menu import *
-from datos import *
 
 RUTA_USUARIOS="usuarios.json"
 RUTA_SERVICIOS="servicios.json"
 RUTA_PRODUCTOS="productos.json"
 
-datos_usuarios = traer_datos(RUTA_USUARIOS)
-datos_servicio = traer_datos(RUTA_SERVICIOS)
-datos_productos = traer_datos(RUTA_PRODUCTOS)
+print("Para el correcto funcionamiento cuando se vayan a ingresar nuevos servicios el identificador debe comenzar con:")
+print("INTERNET: (C para cable) (F para fibra optica) (S para satelital)")
+print("PLANES: (PR para prepago) (PT para pospago)")
+print("luego de las siglas se agrega un numero si es menor a diez agregarle un cero al inicio EJ (C06) , (PR15)")
 
 while True:
     menu_modulos()
@@ -33,7 +28,7 @@ while True:
         print("Saliste exitosamente")
         break
     else:
-        print("Ingresa una opcion valida, ")
+        print("Ingresa una opcion valida")
 
 
 
