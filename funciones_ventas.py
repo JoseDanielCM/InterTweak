@@ -1,10 +1,11 @@
 from datos import *
-
+import datetime
 RUTA_USUARIOS="usuarios.json"
 RUTA_SERVICIOS="servicios.json"
 RUTA_PRODUCTOS="productos.json"
 
 def promocion_usuario():
+    promocion=False
     cliente_encontrado=False
     datos_usuarios=traer_datos(RUTA_USUARIOS)
     print("Actualmente contamos con promocion, si el cliente es menor de 22 años y se encuentra estudiando")
@@ -19,7 +20,8 @@ def promocion_usuario():
         return None
     
     for i in datos_usuarios:
-        if i["edad"]<22 and i["documento"]==documento:
+        edad=int(i["edad"])
+        if edad<22 and i["documento"]==documento:
             ocupacion=input("Preguntale al cliente si actualmente se encuentra estudiando (si) (no) ")
             ocupacion.lower()
             if ocupacion=="si":
@@ -28,7 +30,10 @@ def promocion_usuario():
                 promocion=False
             else:
                 print("Se debía ingresar (si) o (no)")
-    print(promocion)
+    if promocion==True:
+        print("Felicidades eres un usuario apto para promocion en productos")
+    else: 
+        print("Lo lamentamos debido a las caracteristicas no te encuentras apto para promocion")
     return promocion
 
 def realizar_venta(promocion):
@@ -37,7 +42,7 @@ def realizar_venta(promocion):
     datos_usuarios=traer_datos(RUTA_USUARIOS)
     datos_servicios=traer_datos(RUTA_SERVICIOS)
     datos_productos=traer_datos(RUTA_PRODUCTOS)
-    documento=input("Ingresa el documento del usuario que quiere comprar: ")
+    documento=input("Por favor ingresa de nuevo el documento del usuario para proceder con la compra: ")
 
     ########### COMPROBACIONES #####################
 
@@ -84,16 +89,19 @@ def realizar_venta(promocion):
                 print("********************************************************************")
             indentificador=input("Ingresa el identificador del servicio que desea el cliente: ")
 
-            aceptar=input("Ingresa la cantidad de dienero que te dió el cliente")
+            aceptar=int(input("Ingresa la cantidad de dienero que te dió el cliente"))
         ################ AGREGAR 1 UNIDAD VENDIDA EN SERVICIOS ################
             for i in datos_servicios[servicio][opciones]:
                 if i["identificador"]==indentificador and aceptar>= i["precio"]:
                     encontrado=True
                     i["vendidos"]+=1
+                    print("Compra exitosa")
+                    fecha_actual=datetime.datetime.now()
+                    fecha_actual=datetime.datetime.strftime(fecha_actual,"%d/%m/%Y - %H:%M:%S")
                     if aceptar ==i["precio"]:
                         print("No le debes devolver cambio")
                     else:
-                        print("le debes devolver "+(aceptar-i["precio"]))
+                        print("le debes devolver "+str(aceptar-i["precio"]))
                     guardar_datos(datos_servicios,RUTA_SERVICIOS)
             if encontrado==False:
                 print("No se encontró tal identificador")
@@ -102,7 +110,8 @@ def realizar_venta(promocion):
             for i in datos_usuarios:
                 if i["documento"]==documento:
                     num_compra=int(len(i["compras_servicios"])+1)
-                    i["compras_servicios"]={f"compra {num_compra}":{"identificador":indentificador}}
+                    i["compras_servicios"]={f"compra {num_compra}":{"identificador":indentificador,"fecha":fecha_actual}}
+                    print("Registro exitoso de la venta en el perfil del cliente")
                     guardar_datos(datos_usuarios,RUTA_USUARIOS)
                     return None
                 
@@ -186,9 +195,11 @@ def realizar_venta(promocion):
         
         ######## TODO AGREGAR LA COMPRA AL USUARIO ################
         for i in datos_usuarios:
+            fecha_actual=datetime.datetime.now()
+            fecha_actual=datetime.datetime.strftime(fecha_actual,"%d/%m/%Y - %H:%M:%S")
             if i["documento"]==documento:
                 num_compra=int(len(i["compras_productos"])+1)
-                i["compras_productos"]={f"compra {num_compra}":{"tipo":producto,"nombre":nombre,"cantidad":cantidad}}
+                i["compras_productos"]={f"compra {num_compra}":{"tipo":producto,"nombre":nombre,"cantidad":cantidad,"fecha":fecha_actual}}
                 guardar_datos(datos_usuarios,RUTA_USUARIOS)
                 return None
         print("No se encontró dal documento de usuario")

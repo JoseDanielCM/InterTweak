@@ -19,8 +19,8 @@ def menu_modulos():
     print("1. para modulo de usuarios")
     print("2. para modulo de gestion de servicios")
     print("3. para modulo de gestion de productos")
-    print("4. para modulo de reportes")
-    print("5. para modulo de ventas")
+    print("4. para modulo de ventas")
+    print("5. para modulo de reportes")
     print("6. para modulo de interacciones con el usuario")
     print("7. para salir")
     print("***************************************")
@@ -144,7 +144,8 @@ def mod_ventas():
         opc=pedir_opcion()
         if opc==1:
             promocion=promocion_usuario()
-            realizar_venta(promocion)
+            if promocion!=None:
+                realizar_venta(promocion)
         elif opc==2:
             print("Regresaste a menu prinipal")
             break

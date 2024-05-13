@@ -22,7 +22,7 @@ while True:
     elif opc==2:
         mod_servicios()
     elif opc==3:
-        mod_servicios()
+        mod_productos()
     elif opc==4:
         mod_ventas()
     elif opc==5:

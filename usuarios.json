@@ -11,12 +11,8 @@
          "compra 1": {
             "tipo": "audifonos",
             "nombre": "redmi buds 5",
-            "cantidad": 2
-         },
-         "compra 2": {
-            "tipo": "celulares",
-            "nombre": "nova 11i",
-            "cantidad": 2
+            "cantidad": 1,
+            "fecha": "13/05/2024 - 09:28:24"
          }
       }
    },
