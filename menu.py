@@ -1,32 +1,28 @@
 from funciones_ventas import promocion_usuario,realizar_venta
 from funciones_interaciones import *
+from funciones_usuarios import *
+from funciones_servicios import *
+from funciones_productos import *
+from funciones_reportes import *
+from datos import *
 
-def menu_principal():
-    while True:
-        menu_modulos()
-        opc=pedir_opcion()
-        if opc==1:
-            mod_usuario()
-        elif opc==2:
-            mod_servicios()
-        elif opc==3:
-            mod_ventas()
-        elif opc==4:
-            mod_reportes()
-        elif opc==5:
-            print("Saliste exitosamente")
-            break
-        else:
-            print("Ingresa una opcion valida, ")
+RUTA_USUARIOS="usuarios.json"
+RUTA_SERVICIOS="servicios.json"
+RUTA_PRODUCTOS="productos.json"
+RUTA_SERVICIO_CLIENTE="servicio_cliente.json"
+RUTA_SUGERENCIAS="sugerencias.json"
+RUTA_RECLAMACIONES="reclamaciones.json"
 
 def menu_modulos():
     print("***************************************")
     print("Digite a que menu desea ingresar")
     print("1. para modulo de usuarios")
     print("2. para modulo de gestion de servicios")
-    print("3. para modulo de reportes")
-    print("4. para modulo de ventas")
-    print("5. para salir")
+    print("3. para modulo de gestion de productos")
+    print("4. para modulo de reportes")
+    print("5. para modulo de ventas")
+    print("6. para modulo de interacciones con el usuario")
+    print("7. para salir")
     print("***************************************")
     
 def pedir_opcion():
@@ -41,6 +37,8 @@ def pedir_opcion():
         return -1
     
 def mod_usuario():
+    datos_usuario = traer_datos(RUTA_USUARIOS)
+
     while True:
         print("Digite a que sub-menú de usuarios desea ingresar")
         print("1. para agregar a un usuarios")
@@ -51,13 +49,13 @@ def mod_usuario():
         print("***************************************")
         opc=pedir_opcion()
         if opc==1:
-            print("MODULO USUARIOS")
+            agregar_usuario(datos_usuario)
         elif opc==2:
-            print("MODULO SERVICIOS")
+            eliminar_usuario(datos_usuario)
         elif opc==3:
-            print("MODULO REPORTES")
+            modificar_usuarios(datos_usuario)
         elif opc==4:
-            print("MODULO VENTAS")
+            asignar_categoria_usuarios(datos_usuario)
         elif opc==5:
             print("Regresaste a menu prinipal")
             break
@@ -65,6 +63,8 @@ def mod_usuario():
             print("Ingresa una opcion valida, ")
 
 def mod_servicios():
+    datos_servicio = traer_datos(RUTA_SERVICIOS)
+
     while True:
         print("MODULO SERVICIOS")
         print("Digite a que sub-menú de servicios desea ingresar")
@@ -75,11 +75,37 @@ def mod_servicios():
         print("***************************************")
         opc=pedir_opcion()
         if opc==1:
-            print("MODULO USUARIOS")
+            agregar_servicio(datos_servicio)
+
         elif opc==2:
-            print("MODULO SERVICIOS")
+            eliminar_servicios(datos_servicio)
+
         elif opc==3:
-            print("MODULO REPORTES")
+            modificar_servicios(datos_servicio)
+
+        elif opc==4:
+            print("Regresaste a menu prinipal")
+            break
+        else:
+            print("Ingresa una opcion valida, ")
+
+def mod_productos():
+    datos_producto=traer_datos(RUTA_PRODUCTOS)
+
+    while True:
+        print("Digite a que sub-menú de usuarios desea ingresar")
+        print("1. para agregar un producto")
+        print("2. para eliminar un producto")
+        print("3. para modificar datos de un producto")
+        print("4. para volver al menú principal")
+        print("***************************************")
+        opc=pedir_opcion()
+        if opc==1:
+            agregar_producto(datos_producto)
+        elif opc==2:
+            eliminar_productos(datos_producto)
+        elif opc==3:
+            modificar_productos(datos_producto)
         elif opc==4:
             print("Regresaste a menu prinipal")
             break
@@ -87,6 +113,7 @@ def mod_servicios():
             print("Ingresa una opcion valida, ")
 
 def mod_reportes():
+    datos_servicios=traer_datos(RUTA_SERVICIOS)
     while True:
         print("MODULO DE SERVICIOS")
         print("Digite a que sub-menú de servicios desea ingresar")
@@ -97,11 +124,11 @@ def mod_reportes():
         print("***************************************")
         opc=pedir_opcion()
         if opc==1:
-            print("MODULO USUARIOS")
+            productos_clientes()
         elif opc==2:
-            print("MODULO SERVICIOS")
+            productos_ya_vendidos()
         elif opc==3:
-            print("MODULO REPORTES")
+            servicios_populares(datos_servicios)
         elif opc==4:
             print("Regresaste a menu prinipal")
             break
@@ -130,10 +157,10 @@ def mod_mas_opciones():
     while True:
         print("MODULO OPCIONES EXTRA")
         print("Digite a que sub-menú de otras opciones desea ingresar")
-        print("1. si el cliente desea realizar una consulta de servicio al cliente ")
-        print("2. si el cliente desea realizar una reclamacion")
-        print("3. si el cliente desea realizar una sugerencia")
-        print("***************************************")
+        print("1. realizar una consulta de servicio al cliente ")
+        print("2. realizar una reclamacion")
+        print("3. realizar una sugerencia")
+        print("************************************************************")
         print("4. si se desea responder una consulta de servicio al cliente")
         print("5. si se desea responder una reclamacion")
         print("6. si se desea leer las sugerencias")
@@ -141,24 +168,19 @@ def mod_mas_opciones():
         print("***************************************")
         opc=pedir_opcion()
         if opc==1:
-            print("MODULO USUARIOS")
+            servicio_cliente()
         elif opc==2:
-            print("MODULO SERVICIOS")
+            reclamacion()
         elif opc==3:
-            print("MODULO REPORTES")
+            sugerencia()
         elif opc==4:
-            print("MODULO REPORTES")
+            responder_servicio_cliente()
         elif opc==5:
-            print("MODULO REPORTES")
+            responder_reclamacion()
         elif opc==6:
-            print("MODULO REPORTES")
+            responder_sugerencia()
         elif opc==7:
             print("Regresaste a menu prinipal")
             break
         else:
             print("Ingresa una opcion valida, ")
-
-    user="admin"
-    password="admin123"
-    intento_user=input("Para acceder a responder las preguntas, escribe el usuario: ")
-    intento_password=input("Ingresa la contraseña: ")

@@ -1,1 +1,9 @@
-[{}]
+[
+   {
+      "numero": 1,
+      "tipo": "productos",
+      "servicio": "audifonos",
+      "pregunta": "se da\u00c3\u00b1aron como los cambio",
+      "respuesta": "si estan dentro del periodo de garantia, traelos a la tienda y los podemos cambiar"
+   }
+]

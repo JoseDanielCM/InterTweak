@@ -1,8 +1,9 @@
 [
-    {
-        "numero": 1,
-        "tipo":""
-        "pregunta": "akakakkaa",
-        "respuesta": "lololol"
-    }
+   {
+      "numero": 1,
+      "tipo": "servicios",
+      "servicio": "internet",
+      "pregunta": "Como reinicio el internet, esta yendo demasiado lento",
+      "respuesta": "sin respuesta"
+   }
 ]

@@ -65,5 +65,15 @@
       "categoria": "nuevo_cliente",
       "compras_servicios": {},
       "compras_productos": {}
+   },
+   {
+      "nombre": "Laura Daniela",
+      "documento": "1074859663",
+      "edad": "18",
+      "telefono": "3147899632",
+      "correo": "lau@gmail.com",
+      "categoria": "nuevo_cliente",
+      "compras_servicios": {},
+      "compras_productos": {}
    }
 ]

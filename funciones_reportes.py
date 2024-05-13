@@ -63,6 +63,7 @@ def servicios_populares(datos_servicios):
     datos_servicios=dict(datos_servicios)
     print("LOS SERVICIOS CON MAS VENTAS EN INTERNET SON")
     print("")
+    ################### SE GUARDA EN UNA LISTA TODAS LAS VENTAS PARA LUEGO COMPARAR ###############
     lista_vendidos_internet=[]
     for i in datos_servicios["internet"]:
         if len(datos_servicios["internet"][i])>=1:
