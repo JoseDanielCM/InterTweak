@@ -3,8 +3,8 @@ from menu import *
 RUTA_USUARIOS="usuarios.json"
 RUTA_SERVICIOS="servicios.json"
 RUTA_PRODUCTOS="productos.json"
-
 print("Bienvenido, cualquier duda ingresa a la opcion 6 (mas opciones) y escribela en el modulo correspondiente")
+print("pd (el usuario para entrar a responder las consultas es: 'admin' y la contraseña es 'admin123')")
 
 while True: 
     menu_modulos()
