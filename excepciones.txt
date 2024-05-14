@@ -66,3 +66,7 @@
 
 13/05/2024 - 23:08:47 -> Debe haber servicios ya vendidos de internet y planes (reporte servicios populares)
 
+14/05/2024 - 08:13:20 -> Se intento ingresar un dato no numerico en el modulo (pedir opcion)
+
+14/05/2024 - 08:13:21 -> Se intento ingresar un dato no numerico en el modulo (pedir opcion)
+

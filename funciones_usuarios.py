@@ -84,12 +84,14 @@ def modificar_usuarios(datos_usuario):
                         if opcion=="edad":
                             try:
                                 i[opcion]=int(input(f"Actualmente {opcion} tiene valor de {i[opcion]} escriba a que desea modificarlo: "))
+                                print("*Modificacion exitosa \n")
                             except Exception:
                                 print("*La edad debe ser un numero\n")
                                 txt_fecha_actual("Se intento colocar en (funcion modificar usuario) en valor (edad) un valor no entero")
                                 return None
                         else:
                             i[opcion]=input(f"Actualmente {opcion} tiene valor de {i[opcion]} escriba a que desea modificarlo: ")
+                            print("*Modificacion exitosa \n")
                         guardar_datos(datos_usuario,RUTA_USUARIOS)
                         return None
                         ##### SI SE ENCUENTRA LA OPCION SE REEMPLAZA Y SE DEVUELVE datos_usuario
@@ -115,6 +117,7 @@ def asignar_categoria_usuarios(datos_usuario):
                 print("Ya encontramos su usuario, nombre:" , i["nombre"] )
                 print("Las categorias son (nuevo_cliente) (cliente_regular) (cliente_leal)")
                 nueva_categoria=input("Actualmente categoria tiene valores de " +str(i["categoria"])+ " a que categoria desea cambiar el cliente: (1) (2) o (3) ")
+
                 ########### SE VALIDA QUE NO ESTÉ YA EN ESA CATEGORIA PARA CAMBIARLO
 
                 if nueva_categoria=="1" or nueva_categoria=="2" or nueva_categoria=="3":
@@ -131,7 +134,7 @@ def asignar_categoria_usuarios(datos_usuario):
                     nueva_categoria="cliente_leal"
 
                 if i["categoria"]==nueva_categoria:
-                    print("El usuario ya está en esa categoria, debe ingresar a cual desea cambiarlo")
+                    print("*El usuario ya está en esa categoria, debe ingresar a cual desea cambiarlo \n")
                     return None
                     ### SI NO ESTÁ EN ESA CATEGORIA Y A ESA SE DESEA CAMBIAR, SE HACE LA MODIFICACION
                 elif i["categoria"]!=nueva_categoria:
