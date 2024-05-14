@@ -6,7 +6,7 @@ RUTA_USUARIOS="usuarios.json"
 def agregar_usuario(datos_usuario):
     datos_usuario=list(datos_usuario)
     nombre=input("Ingresa el nombre del usuario: ")
-    if not nombre.isalpha():
+    if nombre.isdigit():
         print("El nombre solo debe tener caracteres alfanumericos")
         return None
     documento=input("Ingresa el documento del usuario: ")
@@ -44,13 +44,15 @@ def agregar_usuario(datos_usuario):
 def eliminar_usuario(datos_usuario):
     datos_usuario=list(datos_usuario)
     documento=input("Ingrese el documento del usuario que desea eliminar: ")
-    if (not documento.isdigit()) or len(documento)!=10:
+    if ( not documento.isdigit()) or len(documento)!=10:
         print("*El documento solo debe constar de digitos, y deben ser 10 \n")
         return None
     for i in range(len(datos_usuario)):
         if datos_usuario[i]["documento"]==documento:
             datos_usuario.pop(i)
-            return datos_usuario
+            print("Se elimino exitosamente")
+            guardar_datos(datos_usuario,RUTA_USUARIOS)
+            return None
     print(f"No se encontró un usuario con documento: {documento}")
     guardar_datos(datos_usuario,RUTA_USUARIOS)
     return None

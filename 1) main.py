@@ -4,12 +4,9 @@ RUTA_USUARIOS="usuarios.json"
 RUTA_SERVICIOS="servicios.json"
 RUTA_PRODUCTOS="productos.json"
 
-print("Para el correcto funcionamiento cuando se vayan a ingresar nuevos servicios el identificador debe comenzar con:")
-print("INTERNET: (C para cable) (F para fibra optica) (S para satelital)")
-print("PLANES: (PR para prepago) (PT para pospago)")
-print("luego de las siglas se agrega un numero si es menor a diez agregarle un cero al inicio EJ (C06) , (PR15)")
+print("Bienvenido, cualquier duda ingresa a la opcion 6 (mas opciones) y escribela en el modulo correspondiente")
 
-while True:
+while True: 
     menu_modulos()
     opc=pedir_opcion()
     if opc==1:

@@ -111,7 +111,7 @@ def responder_servicio_cliente():
     for preguntas in datos_servicio_cliente:
         if preguntas["numero"]==opcion:
             print(preguntas)
-            respuesta=input("Que deseas responder, a esta pregunta")
+            respuesta=input("Que deseas responder, a esta pregunta: ")
             preguntas["respuesta"]=respuesta
     guardar_datos(datos_servicio_cliente,RUTA_SERVICIO_CLIENTE)
 
@@ -160,6 +160,6 @@ def responder_sugerencia():
     for preguntas in datos_sugerencias:
         if preguntas["numero"]==opcion:
             print(preguntas)
-            respuesta=input("Que deseas responder, a esta sugerencia")
+            respuesta=input("Que deseas responder, a esta sugerencia: ")
             preguntas["respuesta"]=respuesta
     guardar_datos(datos_sugerencias,RUTA_SUGERENCIAS)

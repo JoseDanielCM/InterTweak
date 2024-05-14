@@ -3,14 +3,14 @@
       "cable": [
          {
             "identificador": "C01",
-            "mb_subida": 30,
+            "mb_subida": 25,
             "mb_bajada": 400,
-            "precio": 70000,
-            "vendidos": 0
+            "precio": 60000,
+            "vendidos": 2
          },
          {
             "identificador": "C02",
-            "mb_subida": 50,
+            "mb_subida": 45,
             "mb_bajada": 800,
             "precio": 90000,
             "vendidos": 3
@@ -21,13 +21,26 @@
             "mb_bajada": 600,
             "precio": 70000,
             "vendidos": 0
+         },
+         {
+            "identificador": "C04",
+            "mb_subida": 60,
+            "mb_bajada": 900,
+            "precio": 100000,
+            "vendidos": 0
          }
       ],
       "fibra optica": [
          {
             "identificador": "F01",
-            "mb_simetricos": 700,
+            "mb_simetricos": 701,
             "precio": 120000,
+            "vendidos": 0
+         },
+         {
+            "identificador": "F02",
+            "mb_simetricos": 900,
+            "precio": 150000,
             "vendidos": 0
          }
       ],
@@ -35,7 +48,13 @@
          {
             "identificador": "S01",
             "mb": 200,
-            "precio": 210000,
+            "precio": 200000,
+            "vendidos": 1
+         },
+         {
+            "identificador": "S02",
+            "mb": 180,
+            "precio": 190000,
             "vendidos": 1
          }
       ]
@@ -47,6 +66,20 @@
             "gb": 90,
             "red": "5g",
             "precio": 50000,
+            "vendidos": 1
+         },
+         {
+            "identificador": "PT02",
+            "gb": 45,
+            "red": "4g",
+            "precio": 20000,
+            "vendidos": 0
+         },
+         {
+            "identificador": "PT03",
+            "gb": 70,
+            "red": "5g",
+            "precio": 40000,
             "vendidos": 0
          }
       ],
@@ -54,9 +87,17 @@
          {
             "identificador": "PR01",
             "contenido": "youtube",
-            "horas": 1,
+            "horas": 2,
             "dias": null,
             "precio": 3000,
+            "vendidos": 1
+         },
+         {
+            "identificador": "PR02",
+            "contenido": "spotify",
+            "horas": null,
+            "dias": 15,
+            "precio": 10000,
             "vendidos": 1
          }
       ]

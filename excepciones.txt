@@ -1,0 +1,68 @@
+13/05/2024 - 17:56:51 -> Se intento ingresar un dato no numerico en el modulo (pedir opcion)
+
+13/05/2024 - 18:32:58 -> Se intento ingresar en la cantidad de dinero recibida del cliente un numero no entero (realizar venta)
+
+13/05/2024 - 18:45:02 -> Se intento ingresar un dato no numerico en el modulo (pedir opcion)
+
+13/05/2024 - 18:51:28 -> Se intento realizar la funcion (modificar_usuarios) cuando no hay usuarios registrados
+
+13/05/2024 - 18:53:52 -> Se intento ingresar un dato no numerico en el modulo (pedir opcion)
+
+13/05/2024 - 18:53:56 -> Se intento ingresar un dato no numerico en el modulo (pedir opcion)
+
+13/05/2024 - 18:54:55 -> Ingreso de identificador no usado en (modificar servicios)
+
+13/05/2024 - 18:55:24 -> Ingreso de identificador no usado en (modificar servicios)
+
+13/05/2024 - 18:56:16 -> No hay servicios registrados o o se borraron datos iniciales de estos
+
+13/05/2024 - 19:20:14 -> Se intento ingresar un dato no numerico en el modulo (pedir opcion)
+
+13/05/2024 - 19:26:11 -> Se intento ingresar un dato no numerico en el modulo (pedir opcion)
+
+13/05/2024 - 19:30:25 -> Se intento colocar en (funcion agregar usuario) en valor (edad) un valor no entero
+
+13/05/2024 - 19:32:42 -> Se debio haber borrado datos de forma no permitida del json servicios
+
+13/05/2024 - 19:34:10 -> Se debio haber borrado datos de forma no permitida del json servicios
+
+13/05/2024 - 19:35:20 -> Se debio haber borrado datos de forma no permitida del json servicios
+
+13/05/2024 - 19:36:00 -> Se debio haber borrado datos de forma no permitida del json servicios
+
+13/05/2024 - 19:36:36 -> Se debio haber borrado datos de forma no permitida del json servicios
+
+13/05/2024 - 19:37:15 -> Se debio haber borrado datos de forma no permitida del json servicios
+
+13/05/2024 - 19:44:08 -> Se debio haber borrado datos de forma no permitida del json servicios
+
+13/05/2024 - 19:46:42 -> Se intento ingresar un dato no numerico en el modulo (pedir opcion)
+
+13/05/2024 - 19:46:53 -> Se debio haber borrado datos de forma no permitida del json servicios
+
+13/05/2024 - 20:06:48 -> Se debio haber borrado datos de forma no permitida del json servicios
+
+13/05/2024 - 20:19:33 -> No hay servicios registradoso o se borraron datos iniciales de estos
+
+13/05/2024 - 20:25:07 -> Se intento ingresar un dato no numerico en el modulo (pedir opcion)
+
+13/05/2024 - 20:29:23 -> No hay servicios registradoso o se borraron datos iniciales de estos
+
+13/05/2024 - 20:39:09 -> Ingreso de identificador no usado en (modificar servicios)
+
+13/05/2024 - 20:39:41 -> En modificar servicios se intento modificar parametro no valido o valor no entero
+
+13/05/2024 - 20:43:11 -> Ingreso de identificador no usado en (modificar servicios)
+
+13/05/2024 - 20:44:04 -> Ingreso de identificador no usado en (modificar servicios)
+
+13/05/2024 - 21:05:20 -> En (agregar producto) en producto se ingreso un valor diferente a (celulares) y (audifonos)
+
+13/05/2024 - 22:30:54 -> Debe haber productos ya vendidos (reporte productos ya vendidos)
+
+13/05/2024 - 22:32:44 -> Debe haber productos ya vendidos (reporte productos ya vendidos)
+
+13/05/2024 - 22:33:57 -> Debe haber productos ya vendidos (reporte productos ya vendidos)
+
+13/05/2024 - 23:08:47 -> Debe haber servicios ya vendidos de internet y planes (reporte servicios populares)
+

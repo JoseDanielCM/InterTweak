@@ -2,10 +2,20 @@
    {
       "producto": "celulares",
       "nombre": "nova 11i",
+      "comprados": []
+   },
+   {
+      "producto": "celulares",
+      "nombre": "moto g84",
+      "comprados": []
+   },
+   {
+      "producto": "celulares",
+      "nombre": "galaxi s23",
       "comprados": [
          {
-            "usuario": "Lizeth Dayyana",
-            "cantidad": 2
+            "usuario": "Jose Daniel",
+            "cantidad": 1
          },
          {
             "usuario": "Kelly Valentina",
@@ -14,23 +24,23 @@
       ]
    },
    {
-      "producto": "celulares",
-      "nombre": "moto g84",
+      "producto": "audifonos",
+      "nombre": "redmi buds 5",
       "comprados": []
    },
    {
       "producto": "audifonos",
-      "nombre": "redmi buds 5",
+      "nombre": "freebuds se 2",
       "comprados": [
          {
-            "usuario": "Lizeth Dayyana",
-            "cantidad": 2
+            "usuario": "Juan Manuel",
+            "cantidad": 1
          }
       ]
    },
    {
       "producto": "audifonos",
-      "nombre": "freebuds se 2",
+      "nombre": "freehand 11s",
       "comprados": []
    }
 ]

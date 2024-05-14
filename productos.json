@@ -5,12 +5,13 @@
          "marca": "huawei",
          "gb": 128,
          "nivel": [
+            "nuevo_cliente",
             "cliente_regular",
             "cliente_leal"
          ],
          "precio": 650000,
-         "unidades": 12,
-         "vendidos": 2
+         "unidades": 11,
+         "vendidos": 3
       },
       {
          "nombre": "moto g84",
@@ -22,8 +23,21 @@
             "cliente_leal"
          ],
          "precio": 900000,
-         "unidades": 10,
-         "vendidos": 0
+         "unidades": 9,
+         "vendidos": 1
+      },
+      {
+         "nombre": "galaxi s23",
+         "marca": "samsung",
+         "gb": 256,
+         "nivel": [
+            "nuevo_cliente",
+            "cliente_regular",
+            "cliente_leal"
+         ],
+         "precio": 3000000,
+         "unidades": 13,
+         "vendidos": 2
       }
    ],
    "audifonos": [
@@ -49,7 +63,20 @@
             "cliente_regular",
             "cliente_leal"
          ],
-         "precio": 550000,
+         "precio": 450000,
+         "unidades": 19,
+         "vendidos": 1
+      },
+      {
+         "nombre": "freehand 11s",
+         "marca": "xiaomi",
+         "clase": "inalambricos",
+         "nivel": [
+            "nuevo_cliente",
+            "cliente_regular",
+            "cliente_leal"
+         ],
+         "precio": 50000,
          "unidades": 20,
          "vendidos": 0
       }

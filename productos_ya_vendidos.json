@@ -1,0 +1,22 @@
+[
+   {
+      "Celular": "huawei",
+      "nombre": "nova 11i"
+   },
+   {
+      "Celular": "motorola",
+      "nombre": "moto g84"
+   },
+   {
+      "Celular": "samsung",
+      "nombre": "galaxi s23"
+   },
+   {
+      "audifonos": "xiaomi",
+      "nombre": "redmi buds 5"
+   },
+   {
+      "audifonos": "huawei",
+      "nombre": "freebuds se 2"
+   }
+]

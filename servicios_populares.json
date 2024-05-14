@@ -1,0 +1,34 @@
+{
+   "internet": [
+      {
+         "tipo": "cable",
+         "identificador": "C01"
+      },
+      {
+         "tipo": "cable",
+         "identificador": "C02"
+      }
+   ],
+   "planes": [
+      {
+         "tipo": "postpago",
+         "identificador": "PT01"
+      },
+      {
+         "tipo": "postpago",
+         "identificador": "PT02"
+      },
+      {
+         "tipo": "postpago",
+         "identificador": "PT03"
+      },
+      {
+         "tipo": "prepago",
+         "identificador": "PR01"
+      },
+      {
+         "tipo": "prepago",
+         "identificador": "PR02"
+      }
+   ]
+}

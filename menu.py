@@ -32,13 +32,14 @@ def pedir_opcion():
         print("***************************************")
         return opc
     except Exception:
+        txt_fecha_actual("Se intento ingresar un dato no numerico en el modulo (pedir opcion)")
         print("***************************************")
         return -1
 
 def mod_usuario():
-    datos_usuario = traer_datos(RUTA_USUARIOS)
 
     while True:
+        datos_usuario = traer_datos(RUTA_USUARIOS)
         print("Digite a que sub-menú de usuarios desea ingresar")
         print("1. para agregar a un usuarios")
         print("2. para eliminar a  un usuarios")
@@ -62,9 +63,9 @@ def mod_usuario():
             print("Ingresa una opcion valida, ")
 
 def mod_servicios():
-    datos_servicio = traer_datos(RUTA_SERVICIOS)
 
     while True:
+        datos_servicio = traer_datos(RUTA_SERVICIOS)
         print("MODULO SERVICIOS")
         print("Digite a que sub-menú de servicios desea ingresar")
         print("1. para agregar un servicio")
@@ -89,9 +90,8 @@ def mod_servicios():
             print("Ingresa una opcion valida, ")
 
 def mod_productos():
-    datos_producto=traer_datos(RUTA_PRODUCTOS)
-
     while True:
+        datos_producto=traer_datos(RUTA_PRODUCTOS)
         print("Digite a que sub-menú de usuarios desea ingresar")
         print("1. para agregar un producto")
         print("2. para eliminar un producto")
@@ -112,9 +112,10 @@ def mod_productos():
             print("Ingresa una opcion valida, ")
 
 def mod_reportes():
-    datos_servicios=traer_datos(RUTA_SERVICIOS)
     while True:
-        print("MODULO DE SERVICIOS")
+        datos_servicios=traer_datos(RUTA_SERVICIOS)
+        datos_productos=traer_datos(RUTA_PRODUCTOS)
+        print("MODULO DE REPORTES")
         print("Digite a que sub-menú de servicios desea ingresar")
         print("1. para realizar un reporte de, con cada producto, cuales clientes lo han comprado")
         print("2. para realizar un reporte de los productos que ya han tenido ventas")
@@ -125,7 +126,7 @@ def mod_reportes():
         if opc==1:
             productos_clientes()
         elif opc==2:
-            productos_ya_vendidos()
+            productos_ya_vendidos(datos_productos)
         elif opc==3:
             servicios_populares(datos_servicios)
         elif opc==4:
@@ -136,15 +137,25 @@ def mod_reportes():
 
 def mod_ventas():
     while True:
+        datos_usuarios=traer_datos(RUTA_USUARIOS)
+        cliente_encontrado=False
         print("MODULO DE VENTAS")
         print("Digite (1) para realizar una venta")
         print("Digite (2) para salir y regresar al menú principal")
         print("***************************************")
         opc=pedir_opcion()
         if opc==1:
-            promocion=promocion_usuario()
-            if promocion!=None:
-                realizar_venta(promocion)
+            documento=input("Ingresa el documento del usuario que quiere comprar: ")
+            for i in datos_usuarios:
+                if i["documento"]==documento:
+                    cliente_encontrado=True
+
+            if cliente_encontrado==True:
+                promocion=promocion_usuario(documento)
+                if promocion!="No seguir":
+                    realizar_venta(promocion,documento)
+            else:
+                print("El cliente no se encontró en la base de datos, debes ingresar uno nuevo o agregarlo")
         elif opc==2:
             print("Regresaste a menu prinipal")
             break

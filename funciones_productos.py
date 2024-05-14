@@ -42,7 +42,7 @@ def agregar_producto(datos_productos):
             txt_fecha_actual("Se trato de ingresar en (agregar_producto) en (precio) un valor no entero")
             return None
         try:
-            unidades=int(input(f"Ingresa cuantas unidades hay de este celular {marca} {nombre}"))
+            unidades=int(input(f"Ingresa cuantas unidades hay de este celular {marca} {nombre} "))
         except Exception:
             print("*Las unidades deben ser un valor numerico entero\n")
             txt_fecha_actual("Se trato de ingresar en (agregar_producto) en (gb) un valor no entero")
@@ -84,13 +84,14 @@ def agregar_producto(datos_productos):
             txt_fecha_actual("Se intento colocar en (funcion agregar producto) en valor (precio) un valor no entero")
             return None
         try:
-            unidades=int(input(f"Ingresa cuantas unidades hay de estos audifonos {marca} {nombre}"))
+            unidades=int(input(f"Ingresa cuantas unidades hay de estos audifonos {marca} {nombre} "))
         except Exception:
             print("*La cantidad de unidades debe ser un numero entero\n")
             txt_fecha_actual("Se intento colocar en (funcion agregar producto) en valor (unidades) un valor no entero")
             return None
     ########### AGREGAR DATOS ###########
-        datos_productos[producto].append({"nombre":nombre,"marca":marca,"clase":clase,"nivel":nivel,"precio":precio,"unidades":unidades})
+        datos_productos[producto].append({"nombre":nombre,"marca":marca,"clase":clase,"nivel":nivel,"precio":precio,"unidades":unidades,"vendidos":0})
+        print("producto agregado correctamente")
         guardar_datos(datos_productos,RUTA_PRODUCTOS)
         return None
     else:
@@ -147,6 +148,7 @@ def modificar_productos(datos_productos):
                         return None
 
                     i[objetivo]=modificacion
+                    print(modificacion)
                     print(f"{objetivo} cambiado exitosamente")
                     guardar_datos(datos_productos,RUTA_PRODUCTOS)
                     return None
@@ -199,6 +201,7 @@ def modificar_productos(datos_productos):
 
                     i[objetivo]=modificacion            
                     print(f"{objetivo} cambiado exitosamente")
+                    guardar_datos(datos_productos,RUTA_PRODUCTOS)
                     return None
                 
         except Exception:
@@ -219,6 +222,9 @@ def eliminar_productos(datos_productos):
     producto=input("Deseas eliminar un producto de tipo (celulares) o (audifonos): ")
     #####################################
     if producto=="celulares":
+        if len(datos_productos["celulares"])==0:
+            print("Actualmente no hay productos de celulares, ingresa unos primero")
+            return None
         try:
             ###### MOSTRAR LOS PRODUCTOS QUE SE TIENEN DE CELULARES ########
             print("Actualmente hay estos celulares: ")
@@ -236,6 +242,7 @@ def eliminar_productos(datos_productos):
             for i in range(0,len(datos_productos[producto])):
                 if datos_productos[producto][i]["nombre"]==nombre:
                     datos_productos[producto].pop(i)
+                    print("Celular eliminado correctamente")
                     guardar_datos(datos_productos,RUTA_PRODUCTOS)
                     return None
         except Exception:
@@ -247,6 +254,9 @@ def eliminar_productos(datos_productos):
             
     elif producto=="audifonos":
         try:
+            if len(datos_productos["audifonos"])==0:
+                print("Actualmente no hay productos de celulares, ingresa unos primero")
+                return None
             ###### MOSTRAR LOS PRODUCTOS QUE SE TIENEN DE AUDIFONOS ########
             print("Actualmente hay estos audifonos: ")
             print("*"*len("Actualmente hay estos audifonos: "))
@@ -262,6 +272,8 @@ def eliminar_productos(datos_productos):
             for i in range(0,len(datos_productos[producto])):
                 if datos_productos[producto][i]["nombre"]==nombre:
                     datos_productos[producto].pop(i)
+                    print("audifonos eliminados correctamente")
+                    guardar_datos(datos_productos,RUTA_PRODUCTOS)
                     return datos_productos
                 
             print("No se encontro tal nombre en nuestra lista de celulares")

@@ -5,21 +5,12 @@ RUTA_USUARIOS="usuarios.json"
 RUTA_SERVICIOS="servicios.json"
 RUTA_PRODUCTOS="productos.json"
 
-def promocion_usuario():
+def promocion_usuario(documento):
     promocion=False
-    cliente_encontrado=False
+
     datos_usuarios=traer_datos(RUTA_USUARIOS)
     print("Actualmente contamos con promocion, si el cliente es menor de 22 años y se encuentra estudiando")
-    documento=input("Ingresa el documento del usuario que quiere comprar: ")
     try: 
-        for i in datos_usuarios:
-            if i["documento"]==documento:
-                cliente_encontrado=True
-
-        if cliente_encontrado==False:
-            print("El cliente no se encontró en la base de datos, debes ingresar uno nuevo")
-            return None
-        
         for i in datos_usuarios:
             try:
                 edad=int(i["edad"])
@@ -29,13 +20,14 @@ def promocion_usuario():
 
             if edad<22 and i["documento"]==documento:
                 ocupacion=input("Preguntale al cliente si actualmente se encuentra estudiando (si) (no) ")
-                ocupacion.lower()
+                ocupacion=ocupacion.lower()
                 if ocupacion=="si":
                     promocion=True
                 elif ocupacion=="no":
                     promocion=False
                 else:
                     print("Se debía ingresar (si) o (no)")
+                    return "No seguir"
         if promocion==True:
             print("Felicidades eres un usuario apto para promocion en productos")
         else: 
@@ -44,13 +36,12 @@ def promocion_usuario():
     except Exception:
         print("Deben haber clientes registrados")
 
-def realizar_venta(promocion):
+def realizar_venta(promocion,documento):
     encontrado=False
     cliente_encontrado=False
     datos_usuarios=traer_datos(RUTA_USUARIOS)
     datos_servicios=traer_datos(RUTA_SERVICIOS)
     datos_productos=traer_datos(RUTA_PRODUCTOS)
-    documento=input("Por favor ingresa de nuevo el documento del usuario para proceder con la compra: ")
 
     ########### COMPROBACIONES #####################
     try: 
@@ -97,7 +88,7 @@ def realizar_venta(promocion):
                     print("********************************************************************")
                 indentificador=input("Ingresa el identificador del servicio que desea el cliente: ")
                 try:
-                    aceptar=int(input("Ingresa la cantidad de dienero que te dió el cliente"))
+                    aceptar=int(input("Ingresa la cantidad de dienero que te dió el cliente: "))
                 except:
                     print("Se intento ingresar en la cantidad de dinero recibida del cliente un numero no entero")
                     txt_fecha_actual("Se intento ingresar en la cantidad de dinero recibida del cliente un numero no entero (realizar venta)")
@@ -122,8 +113,9 @@ def realizar_venta(promocion):
                 for i in datos_usuarios:
                     if i["documento"]==documento:
                         num_compra=int(len(i["compras_servicios"])+1)
-                        i["compras_servicios"]={f"compra {num_compra}":{"identificador":indentificador,"fecha":fecha_actual}}
-                        print("Registro exitoso de la venta en el perfil del cliente")
+                        i["compras_servicios"][f"compra {num_compra}"]={}
+                        i["compras_servicios"][f"compra {num_compra}"]={"identificador":indentificador,"fecha":fecha_actual}
+                        print("Registro exitoso de la venta en el perfil del cliente \n")
                         guardar_datos(datos_usuarios,RUTA_USUARIOS)
                         return None
                     
@@ -133,6 +125,7 @@ def realizar_venta(promocion):
             
     ############### TODOS PRODUCTOS #######################
         else:
+            descuento_compras=False
 
             ################# MOSTRAR PRODUCTOS QUE HAY #################
             producto=input("Que desea comprar el cliente? (celulares) o (audifonos): ")
@@ -142,6 +135,10 @@ def realizar_venta(promocion):
             else:
                 print("debías escoger (celulares) o (audifonos) ")
                 return None
+
+            if len(datos_productos[producto])==0:
+                print(f"\n *Actualmente no hay productos de {producto}, ingresa unos primero \n")
+                return None            
 
             print(f"Los siguientes son los {producto} que tenemos y sus caracteristicas:")
             
@@ -168,8 +165,11 @@ def realizar_venta(promocion):
             for i in range(len(datos_usuarios)):
                 if datos_usuarios[i]["documento"]==documento:
                     posicion_usuario=i
+                    cantidad_compras=len(datos_usuarios[i]["compras_productos"])
                     break
-            
+            if cantidad_compras>5:
+                descuento_compras=True
+
     ################ AGREGAR 1 UNIDAD EN PRODUCTOS ################
             producto_encontrado=False
             for i in datos_productos[producto]:
@@ -182,8 +182,15 @@ def realizar_venta(promocion):
                         if i["unidades"]>=cantidad:
             ############## VERIFICAR QUE EL CLIENTE CUENTE CON LA CANTIDAD DE DINERO NECESARIA ####
                             precio=i["precio"]
-                            if promocion==True:
+                            if promocion==True and descuento_compras==True:
+                                print("se hará descuento por promocion y por cantidad de productos comprados")
+                                precio=int(precio*0.7*0.9)
+                            elif promocion==True and descuento_compras==False:
+                                print("se hará descuento por promocion ")
                                 precio=int(precio*0.7)
+                            elif promocion==False and descuento_compras==True:
+                                print("se hará descuento por cantidad de productos comprados ")
+                                precio=int(precio*0.9)
                             print("En total serían ",precio*cantidad)
                             try:
                                 aceptar=int(input("Cuanto dinero te entregó el cliente? "))
@@ -192,7 +199,7 @@ def realizar_venta(promocion):
                                 txt_fecha_actual("(realizar venta) (dinero recibido) se debia ingresar una cantidad de numero entero")
                             if aceptar>precio*cantidad:
                                 print("Compra exitosa")
-                                print("Devuelvele al cliente $",(aceptar-precio*cantidad))
+                                print("Devuelvele al cliente $",(aceptar-precio*cantidad),"\n")
                                 i["vendidos"]+=cantidad
                                 i["unidades"]-=cantidad
                                 guardar_datos(datos_productos,RUTA_PRODUCTOS)
@@ -222,7 +229,8 @@ def realizar_venta(promocion):
                 fecha_actual=datetime.datetime.strftime(fecha_actual,"%d/%m/%Y - %H:%M:%S")
                 if i["documento"]==documento:
                     num_compra=int(len(i["compras_productos"])+1)
-                    i["compras_productos"]={f"compra {num_compra}":{"tipo":producto,"nombre":nombre,"cantidad":cantidad,"fecha":fecha_actual}}
+                    i["compras_productos"][f"compra {num_compra}"]={}
+                    i["compras_productos"][f"compra {num_compra}"]={"tipo":producto,"nombre":nombre,"cantidad":cantidad,"fecha":fecha_actual}
                     guardar_datos(datos_usuarios,RUTA_USUARIOS)
                     return None
             print("No se encontró dal documento de usuario")
